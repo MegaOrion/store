@@ -1,1 +1,37 @@
-<p>checkout works!</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col bg-dark text-white">
+      <a href="#" class="navbar-brand">SPORTS STORE</a>
+    </div>
+  </div>
+  <form class="m-2 ng-pristine ng-invalid ng-touched">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control ng-pristine ng-invalid ng-touched" name="name" required>
+    </div>
+    <div class="form-group">
+      <label for="adress">Adress</label>
+      <input type="text" class="form-control ng-pristine ng-invalid ng-touched" name="adress" required>
+    </div>
+    <div class="form-group">
+      <label for="city">City</label>
+      <input type="text" class="form-control ng-pristine ng-invalid ng-touched" name="city" required>
+    </div>
+    <div class="form-group">
+      <label for="state">State</label>
+      <input type="text" class="form-control ng-pristine ng-invalid ng-touched" name="state" required>
+    </div>
+    <div class="form-group">
+      <label for="zip">Zip/Postal Code</label>
+      <input type="text" class="form-control ng-pristine ng-invalid ng-touched" name="zip" required>
+    </div>
+    <div class="form-group">
+      <label for="country">Country</label>
+      <input type="text" class="form-control ng-pristine ng-invalid ng-touched" name="country" required>
+    </div>
+    <div class="text-center">
+      <button class="btn btn-secondary m-1" routerLink="/cart">Back</button>
+      <button class="btn btn-primary m-1" type="submit">Complete Order</button>
+    </div>
+  </form>
+</div>

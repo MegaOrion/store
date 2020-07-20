@@ -1,6 +1,9 @@
-import { CartService } from './../cart.service';
+import { CartService } from '../cart/cart.service';
 import { RestService } from './../../rest.service';
 import { Component, OnInit } from '@angular/core';
+import { Product } from '../../product.model';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-store',
@@ -16,7 +19,8 @@ export class StoreComponent implements OnInit {
   public activeItem: number = 1;
   constructor(
     private restService: RestService,
-    private cartService: CartService
+    private cartService: CartService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -29,7 +33,12 @@ export class StoreComponent implements OnInit {
         this.showProducts();
       },
       (err) => console.log(err)
-    )    
+    );
+  }
+
+  public addToCart(product: Product) {
+    this.cartService.add(product);
+    this.router.navigate(['/cart']);
   }
 
   public showAllProducts(): void {
@@ -41,7 +50,7 @@ export class StoreComponent implements OnInit {
   public showProducts(a?): void {
     !a && (a = 0);
     this.visibleProducts = this.showedProducts.slice(a, a + this.rows);
-    this.activeItem = 1;    
+    this.activeItem = 1;
   }
 
   public getCategories() {

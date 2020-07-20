@@ -2,7 +2,6 @@
     <div class="row">
         <div class="col bg-dark text-white">
             <a href="#" class="navbar-brand">SPORTS STORE</a>
-            <cart-summary></cart-summary>
         </div>
     </div>
     <div class="row">
@@ -21,11 +20,13 @@
             <div class="card m-1 p-1 bg-light"
                 *ngFor="let item of visibleProducts">
                 <h4>{{item.name}}
-                    <span class="badge badge-pill badge-primary float-right">${{item.price}}</span>  
+                    <span class="badge badge-pill badge-primary float-right">${{item.price}}</span>
                 </h4>
                 <div class="card-text bg-white p-1">
                     {{item.description}} ({{item.category}})
-                    <button class="btn btn-success btn-sm float-right">Add To Cart</button>
+                    <button class="btn btn-success btn-sm float-right"
+                            (click)="addToCart(item)">
+                            Add To Cart</button>
                 </div>
             </div>
             <div class="form-inline float-left mr-1">
@@ -44,6 +45,6 @@
                     {{ i }}
                 </button>
             </div>
-        </div>        
+        </div>
     </div>
 </div>
