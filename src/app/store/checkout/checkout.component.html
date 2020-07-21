@@ -5,7 +5,7 @@
     </div>
   </div>
   <form class="m-2" [formGroup]="formCheckout" novalidate (ngSubmit)="sendOrder()">
-    <div class="form-group">
+    <div class="form-group"> 
       <label for="name">Name</label>
       <input formControlName="name" type="text" class="form-control" name="name">
       <div *ngIf="formCheckout.controls['name'].invalid && formCheckout.controls['name'].touched" class="text-danger">
