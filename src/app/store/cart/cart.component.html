@@ -19,11 +19,13 @@
         <tbody>
           <tr *ngFor="let item of cartService.get()">
             <td>
-              <input value="{{item.quantity}}" type="number" class="form-control-sm" style="width: 5em;">
+              <input value="{{item.quantity}}" type="number" class="form-control-sm" 
+                     style="width: 5em;" min="1" #count
+                     (input)="cartService.changeQuantity(item, count.value)">
             </td>
             <td>{{item.product.name}}</td>
             <td class="text-right">{{item.product.price}}</td>
-            <td class="text-right">$ {{item.getSubTotal()}}</td>
+            <td class="text-right">${{item.getSubTotal()}}</td>
             <td>
               <button class="btn btn-sm btn-danger text-center"
                       (click)="cartService.removePosition(item.product.id)">Remove</button>
@@ -33,7 +35,7 @@
         <tfoot>
           <tr>
             <td colspan="3" class="text-right">Total:</td>
-            <td class="text-right">{{cartService.getTotal()}}</td>
+            <td class="text-right">${{cartService.getTotal()}}</td>
           </tr>
         </tfoot>
       </table>
@@ -43,7 +45,8 @@
     <div class="col">
       <div class="text-center">
         <button routerLink="/store" class="btn btn-primary m-1" tabindex="0">Continue Shopping</button>
-        <button routerLink="/checkout" class="btn btn-secondary m-1" tabindex="0">Checkout</button>
+        <button routerLink="/checkout" class="btn btn-secondary m-1" tabindex="0"
+                [disabled]="cartService.positions.length === 0">Checkout</button>
       </div>
     </div>
   </div>
