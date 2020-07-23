@@ -4,7 +4,13 @@
       <a href="#" class="navbar-brand">SPORTS STORE</a>
     </div>
   </div>
-  <form class="m-2" [formGroup]="formCheckout" novalidate (ngSubmit)="sendOrder()">
+  <div class="m-2 text-center" *ngIf="orderSent">
+    <h2>Thanks</h2>
+    <p>Thanks for placing your order.</p>
+    <p>We'll ship youor goods as soon as possible.</p>
+    <button routerLink="/store" class="btn btn-primary">Return to Store</button>
+  </div>
+  <form class="m-2" *ngIf="!orderSent" [formGroup]="formCheckout" #form="ngForm" novalidate (ngSubmit)="sendOrder(form)">
     <div class="form-group"> 
       <label for="name">Name</label>
       <input formControlName="name" type="text" class="form-control" name="name">

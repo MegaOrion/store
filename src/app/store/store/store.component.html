@@ -40,7 +40,7 @@
             </div>
             <div class="btn-group float-right">
                 <button class="btn btn-outline-primary"
-                    [class.active]="i == activeItem"
+                    [class.active]="i === activeItem"
                     *ngFor="let i of getBtnPage()"
                     (click)="showPage(i)">
                     {{ i }}

@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { AuthComponent } from './admin/auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { FormsModule } from '@angular/forms';
     AdminModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AuthComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

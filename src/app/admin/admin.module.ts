@@ -16,6 +16,7 @@ import { ListComponent } from './main/products/list/list.component';
   imports: [
     CommonModule,
     RouterModule.forChild([])
-  ]
+  ],
+  providers: []
 })
 export class AdminModule { }

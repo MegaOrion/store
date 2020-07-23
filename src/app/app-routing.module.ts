@@ -1,3 +1,4 @@
+import { AuthGuard } from './admin/auth/auth.guard';
 import { EditComponent } from './admin/main/products/edit/edit.component';
 import { CreateComponent } from './admin/main/products/create/create.component';
 import { ListComponent } from './admin/main/products/list/list.component';
@@ -19,7 +20,7 @@ const routes: Routes = [
   {path: 'checkout', component: CheckoutComponent},
   {path: 'admin/auth', component: AuthComponent},
   {
-    path: 'admin/main', component: MainComponent, children: [
+    path: 'admin/main', component: MainComponent, canActivate: [AuthGuard], children: [
       {path: '', pathMatch: 'full', redirectTo: 'products'},
       {path: 'orders', component: OrdersComponent},
       {
@@ -27,7 +28,7 @@ const routes: Routes = [
           {path: '', component: ListComponent},
           {path: 'create', component: CreateComponent},
           {path: 'edit/:id', component: EditComponent}
-        ]
+        ],
       }
     ]
   }
