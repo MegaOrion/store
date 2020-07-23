@@ -15,4 +15,8 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  public hasProducts(): boolean {
+    return this.cartService.hasProducts();
+  }
 }

@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { CartService } from '../cart/cart.service';
+import { RestService } from 'src/app/rest.service';
+import { Order } from '../../order.model';
 
 @Component({
   selector: 'app-checkout',
@@ -6,10 +10,35 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit {
-
-  constructor() { }
+  public formCheckout: FormGroup;
+  public submitted: boolean = false;
+  constructor(
+    private cartService: CartService,
+    private restService: RestService
+    ) {
+    this.formCheckout = new FormGroup({
+      "name": new FormControl("", Validators.required),
+      "email": new FormControl("", Validators.required),
+      "phone": new FormControl("", Validators.required),
+      "adress": new FormControl("", Validators.required)
+    })
+  }
 
   ngOnInit(): void {
+  }
+
+  public sendOrder(): void {
+    console.log(this.formCheckout);
+    this.restService.postOrder(new Order(
+      this.cartService.get(),
+      this.formCheckout.get("name").value,
+      this.formCheckout.get("email").value,
+      this.formCheckout.get("phone").value,
+      this.formCheckout.get("adress").value,
+    )).subscribe(() => {
+      this.submitted = true;
+      this.cartService.clear();
+    });
   }
 
 }

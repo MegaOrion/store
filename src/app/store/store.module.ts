@@ -4,17 +4,23 @@ import { CommonModule } from '@angular/common';
 import { StoreComponent } from './store/store.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
-import { FormsModule } from '@angular/forms';
 import { CartService } from './cart/cart.service';
+import { CartSummaryComponent } from './store/cart-summary/cart-summary.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 
 
 @NgModule({
-  declarations: [StoreComponent, CartComponent, CheckoutComponent],
+  declarations: [StoreComponent, CartComponent, CheckoutComponent, CartSummaryComponent],
   imports: [
     FormsModule,
+    ReactiveFormsModule,
     CommonModule,
-    RouterModule.forChild([])
+    RouterModule.forChild([
+      {path: 'store', component: StoreComponent},
+      {path: 'cart', component: CartComponent},
+      {path: 'checkout', component: CheckoutComponent},
+    ])
   ],
   providers: [CartService]
 })

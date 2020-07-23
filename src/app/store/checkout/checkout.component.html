@@ -4,34 +4,44 @@
       <a href="#" class="navbar-brand">SPORTS STORE</a>
     </div>
   </div>
-  <form class="m-2 ng-pristine ng-invalid ng-touched">
+  <div *ngIf="submitted" class="m-2 text-center">
+    <h2>Thanks!</h2>
+    <p>Thanks for placing your order.</p>
+    <p>We'll ship your goods as soon as possible.</p>
+    <button routerLink="/store" class="btn btn-primary">Return to Store</button>
+  </div>
+  <form *ngIf="!submitted" class="m-2" [formGroup]="formCheckout" novalidate (ngSubmit)="sendOrder()">
     <div class="form-group">
       <label for="name">Name</label>
-      <input type="text" class="form-control" name="name" required>
+      <input formControlName="name" type="text" class="form-control" name="name">
+      <div *ngIf="formCheckout.controls['name'].invalid && formCheckout.controls['name'].touched" class="text-danger">
+        Please enter your name
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input formControlName="email" type="text" class="form-control" name="email">
+      <div *ngIf="formCheckout.controls['email'].invalid && formCheckout.controls['email'].touched" class="text-danger">
+        Please enter your email
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone</label>
+      <input formControlName="phone" type="text" class="form-control" name="phone">
+      <div *ngIf="formCheckout.controls['phone'].invalid && formCheckout.controls['phone'].touched" class="text-danger">
+        Please enter your phone
+      </div>
     </div>
     <div class="form-group">
       <label for="adress">Adress</label>
-      <input type="text" class="form-control" name="adress" required>
-    </div>
-    <div class="form-group">
-      <label for="city">City</label>
-      <input type="text" class="form-control" name="city" required>
-    </div>
-    <div class="form-group">
-      <label for="state">State</label>
-      <input type="text" class="form-control" name="state" required>
-    </div>
-    <div class="form-group">
-      <label for="zip">Zip/Postal Code</label>
-      <input type="text" class="form-control" name="zip" required>
-    </div>
-    <div class="form-group">
-      <label for="country">Country</label>
-      <input type="text" class="form-control" name="country" required>
+      <input formControlName="adress" type="text" class="form-control" name="adress">
+      <div *ngIf="formCheckout.controls['adress'].invalid && formCheckout.controls['adress'].touched" class="text-danger">
+        Please enter your adress
+      </div>
     </div>
     <div class="text-center">
       <button class="btn btn-secondary m-1" routerLink="/cart">Back</button>
-      <button class="btn btn-primary m-1" type="submit">Complete Order</button>
+      <button class="btn btn-primary m-1" type="submit" [disabled]="formCheckout.invalid">Complete Order</button>
     </div>
   </form>
 </div>

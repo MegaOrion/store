@@ -9,28 +9,12 @@ import { CheckoutComponent } from './store/checkout/checkout.component';
 import { CartComponent } from './store/cart/cart.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { StoreComponent } from './store/store/store.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'store'},
-  {path: 'store', component: StoreComponent},
-  {path: 'cart', component: CartComponent},
-  {path: 'checkout', component: CheckoutComponent},
-  {path: 'admin/auth', component: AuthComponent},
-  {
-    path: 'admin/main', component: MainComponent, children: [
-      {path: '', pathMatch: 'full', redirectTo: 'products'},
-      {path: 'orders', component: OrdersComponent},
-      {
-        path: 'products', component: ProductsComponent, children: [
-          {path: '', component: ListComponent},
-          {path: 'create', component: CreateComponent},
-          {path: 'edit/:id', component: EditComponent}
-        ]
-      }
-    ]
-  }
+  {path: '**', component: NotFoundComponent}
 ];
 
 @NgModule({
