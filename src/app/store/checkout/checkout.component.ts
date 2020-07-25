@@ -1,7 +1,8 @@
-import { CartService } from './../cart/cart.service';
-import { RestService } from './../../rest.service';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { CartService } from '../cart/cart.service';
+import { RestService } from 'src/app/rest.service';
+import { Order } from '../../order.model';
 
 @Component({
   selector: 'app-checkout',
@@ -10,43 +11,35 @@ import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
 })
 export class CheckoutComponent implements OnInit {
   public formCheckout: FormGroup;
-  public orderSent: boolean = false;
   public submitted: boolean = false;
-
   constructor(
-    private restService: RestService,
     private cartService: CartService,
-  ) {    
+    private restService: RestService
+    ) {
     this.formCheckout = new FormGroup({
-      "name": new FormControl("Bred", Validators.required),
-      "adress": new FormControl("Street49", Validators.required),
-      "city": new FormControl("London", Validators.required),
-      "state": new FormControl("Wels", Validators.required),
-      "zip": new FormControl("0967", [
-        Validators.required,
-        Validators.pattern("[0-9]+")
-      ]),
-      "country": new FormControl("USA", Validators.required)
+      "name": new FormControl("", Validators.required),
+      "email": new FormControl("", Validators.required),
+      "phone": new FormControl("", Validators.required),
+      "adress": new FormControl("", Validators.required)
     })
   }
 
   ngOnInit(): void {
   }
 
-  public sendOrder(form: NgForm): void {
-    this.submitted = true;
-
-    let order = {
-      "positions": this.cartService.positions,
-      "shipped": false,
-      "clientInfo": this.formCheckout.value
-    };
-
-    this.restService.setOrder(order).subscribe(() => {
-      this.orderSent = true;
-      this.submitted = false;      
+  public sendOrder(): void {
+    console.log(this.formCheckout);
+    this.restService.postOrder(new Order(
+      false,
+      this.cartService.get(),
+      this.formCheckout.get("name").value,
+      this.formCheckout.get("email").value,
+      this.formCheckout.get("phone").value,
+      this.formCheckout.get("adress").value,
+    )).subscribe(() => {
+      this.submitted = true;
+      this.cartService.clear();
     });
-    this.cartService.positions = [];
   }
 
 }

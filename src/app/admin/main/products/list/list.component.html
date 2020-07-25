@@ -1,1 +1,25 @@
-<p>list works!</p>
+<table class="table table-sm table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of getListProducts()">
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.category}}</td>
+            <td>${{item.price}}</td>
+            <td>
+                <button class="btn btn-sm btn-warning m-1" (click)="routeEditForm(item.id)">Edit</button>
+                <button class="btn btn-sm btn-danger" (click)="removeProduct(item.id)">Delete</button>
+                
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button routerLink="/admin/main/products/create" class="btn btn-primary">Create New Product</button>

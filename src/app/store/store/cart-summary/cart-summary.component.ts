@@ -1,4 +1,3 @@
-import { Position } from './../../../position.model';
 import { CartService } from './../../cart/cart.service';
 import { Component, OnInit } from '@angular/core';
 

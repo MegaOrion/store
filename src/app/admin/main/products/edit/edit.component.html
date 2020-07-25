@@ -1,1 +1,24 @@
-<p>edit works!</p>
+<div class="bg-primary p-2 text-white bg-warning text-dark">
+    <h5>Edit Product</h5>
+</div>
+<form [formGroup]="formEdit" *ngIf="product">
+    <div class="form-group">
+        <label>Name</label>
+        <input value="{{product.name}}" #name class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Category</label>
+        <input value="{{product.category}}" #category class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <textarea value="{{product.description}}" #descr class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label>Price</label>
+        <input value="{{product.price}}" #price class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary m-1 btn-warning" 
+    (click)="editProduct(name.value, category.value, descr.value, price.value)"> Save </button>
+    <button type="reset" routerLink="/admin/main/products" class="btn btn-secondary"> Cancel </button>
+</form>

@@ -1,2 +1,19 @@
-<p>main works!</p>
-<router-outlet></router-outlet>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col bg-dark text-white">
+            <a class="navbar-brand">SPORTS STORE</a>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-2">
+            <button routerLink="/admin/main/products" routerLinkActive="active" 
+            class="btn btn-outline-info btn-block active">Products</button>
+            <button routerLink="/admin/main/orders" routerLinkActive="active" 
+            class="btn btn-outline-info btn-block">Orders</button>
+            <button class="btn btn-outline-danger btn-block" routerLink="/" (click)="logout()">Logout</button>
+        </div>
+        <div class="col-10">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

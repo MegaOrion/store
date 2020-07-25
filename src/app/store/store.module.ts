@@ -16,7 +16,11 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
-    RouterModule.forChild([])
+    RouterModule.forChild([
+      {path: 'store', component: StoreComponent},
+      {path: 'cart', component: CartComponent},
+      {path: 'checkout', component: CheckoutComponent},
+    ])
   ],
   providers: [CartService]
 })

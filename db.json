@@ -1,90 +1,61 @@
 {
   "products": [
     {
-      "id": 1,
-      "name": "product 1",
-      "description": "descr 1",
+      "name": "product 66666",
+      "description": "descr 66666",
       "category": "Category 1",
-      "price": 100
+      "price": 6000000,
+      "id": 6
     },
     {
-      "id": 2,
-      "name": "product 2",
-      "description": "descr 2",
-      "category": "Category 1",
-      "price": 200
+      "name": "product 7",
+      "description": "descr 7",
+      "category": "Category 4",
+      "price": 79999,
+      "id": 7
     },
     {
-      "id": 3,
-      "name": "product 3",
-      "description": "descr 3",
-      "category": "Category 2",
-      "price": 300
-    },
-    {
-      "id": 4,
-      "name": "product 4",
-      "description": "descr 4",
-      "category": "Category 2",
-      "price": 400
-    },
-    {
-      "id": 5,
-      "name": "product 5",
-      "description": "descr 5",
+      "id": 8,
+      "name": "product 8",
+      "description": "descr 8",
       "category": "Category 3",
-      "price": 500
+      "price": 800
     },
     {
-      "id": 6,
-      "name": "product 6",
-      "description": "descr 6",
+      "name": "product 9",
+      "description": "descr 9",
+      "category": "Category 4",
+      "price": 999,
+      "id": 9
+    },
+    {
+      "id": 10,
+      "name": "product 10",
+      "description": "descr 10",
+      "category": "Category 4",
+      "price": 4000
+    },
+    {
+      "id": 11,
+      "name": "product 11",
+      "description": "descr 11",
       "category": "Category 3",
-      "price": 600
+      "price": 5000
     },
     {
-      "id": 1,
-      "name": "product 1",
-      "description": "descr 1",
-      "category": "Category 1",
-      "price": 100
-    },
-    {
-      "id": 2,
-      "name": "product 2",
-      "description": "descr 2",
-      "category": "Category 1",
-      "price": 200
-    },
-    {
-      "id": 3,
-      "name": "product 3",
-      "description": "descr 3",
-      "category": "Category 2",
-      "price": 300
-    },
-    {
-      "id": 4,
-      "name": "product 4",
-      "description": "descr 4",
-      "category": "Category 2",
-      "price": 400
-    },
-    {
-      "id": 5,
-      "name": "product 5",
-      "description": "descr 5",
+      "id": 12,
+      "name": "product 12",
+      "description": "descr 12",
       "category": "Category 3",
-      "price": 500
+      "price": 6000
     },
     {
-      "id": 6,
-      "name": "product 6",
-      "description": "descr 6",
-      "category": "Category 3",
-      "price": 600
+      "name": "Chess",
+      "description": "1x1",
+      "category": "Table game",
+      "price": 25.99,
+      "id": 1595686372454
     }
   ],
-  "orders": [
-  ]
+  "orders": []
 }

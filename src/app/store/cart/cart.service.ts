@@ -6,10 +6,18 @@ import { Product } from '../../product.model';
   providedIn: 'root'
 })
 export class CartService {
-  public positions: Position[] = [];
+  private positions: Position[] = [];
 
   constructor(
   ) { }
+
+  public hasProducts(): boolean {
+    if (this.positions.length === 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   public get(): Position[] {
     return this.positions;
@@ -26,7 +34,7 @@ export class CartService {
 
   public getTotal() {
     let result = 0;
-    
+
     this.positions.forEach((item) => {
       result += item.getSubTotal();
     });
@@ -40,5 +48,9 @@ export class CartService {
 
   public changeQuantity(position: Position, count): void {
     position.quantity = +count;
+  }
+
+  public clear(): void {
+    this.positions = [];
   }
 }
