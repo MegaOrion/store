@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CartService } from '../cart/cart.service';
 import { RestService } from 'src/app/rest.service';
 import { Order } from '../../order.model';
+import { phoneValid } from './phone.validator';
 
 @Component({
   selector: 'app-checkout',
@@ -19,7 +20,10 @@ export class CheckoutComponent implements OnInit {
     this.formCheckout = new FormGroup({
       "name": new FormControl("", Validators.required),
       "email": new FormControl("", Validators.required),
-      "phone": new FormControl("", Validators.required),
+      "phone": new FormControl("", [
+        Validators.required,
+        phoneValid
+      ]),
       "adress": new FormControl("", Validators.required)
     })
   }

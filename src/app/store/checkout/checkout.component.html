@@ -29,7 +29,7 @@
       <label for="phone">Phone</label>
       <input formControlName="phone" type="text" class="form-control" name="phone">
       <div *ngIf="formCheckout.controls['phone'].invalid && formCheckout.controls['phone'].touched" class="text-danger">
-        Please enter your phone
+        {{formCheckout.get('phone').getError('invalidPhone')}}
       </div>
     </div>
     <div class="form-group">
