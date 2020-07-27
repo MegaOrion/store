@@ -36,11 +36,11 @@
       "price": 4000
     },
     {
-      "id": 11,
       "name": "product 11",
       "description": "descr 11",
       "category": "Category 3",
-      "price": 5000
+      "price": "5000",
+      "id": 11
     },
     {
       "id": 12,
@@ -55,6 +55,13 @@
       "category": "Table game",
       "price": 25.99,
       "id": 1595686372454
+    },
+    {
+      "name": "qwertty",
+      "description": "asdsdgdfg",
+      "category": "phones",
+      "price": "999999",
+      "id": 1595686372455
     }
   ],
   "orders": []

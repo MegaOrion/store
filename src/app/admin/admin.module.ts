@@ -10,11 +10,21 @@ import { CreateComponent } from './main/products/create/create.component';
 import { ListComponent } from './main/products/list/list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthGuard } from './auth.guard';
-
-
+import { FormComponent } from './main/products/form/form.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 @NgModule({
-  declarations: [AuthComponent, MainComponent, ProductsComponent, OrdersComponent, EditComponent, CreateComponent, ListComponent],
+  declarations: [AuthComponent, MainComponent, ProductsComponent, OrdersComponent, EditComponent, CreateComponent, ListComponent, FormComponent],
+  entryComponents: [FormComponent],
   imports: [
+    MatSnackBarModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatDialogModule,
+    MatInputModule,
     CommonModule,
     ReactiveFormsModule,
     RouterModule.forChild([

@@ -15,11 +15,11 @@
             <td>{{item.category}}</td>
             <td>${{item.price}}</td>
             <td>
-                <button class="btn btn-sm btn-warning m-1" (click)="routeEditForm(item.id)">Edit</button>
+                <button class="btn btn-sm btn-warning m-1" (click)="openForm(item)">Edit</button>
                 <button class="btn btn-sm btn-danger" (click)="removeProduct(item.id)">Delete</button>
-                
+
             </td>
         </tr>
     </tbody>
 </table>
-<button routerLink="/admin/main/products/create" class="btn btn-primary">Create New Product</button>
+<button class="btn btn-primary" (click)="openForm()">Create New Product</button>
